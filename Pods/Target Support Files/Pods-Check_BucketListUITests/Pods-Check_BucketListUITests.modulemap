@@ -1,0 +1,6 @@
+framework module Pods_Check_BucketListUITests {
+  umbrella header "Pods-Check_BucketListUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
