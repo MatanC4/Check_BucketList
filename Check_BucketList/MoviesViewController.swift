@@ -84,10 +84,27 @@ class MoviesViewController: UIViewController ,UITableViewDelegate , UITableViewD
                 cell.note1.text = event.note1
                 cell.note2.text = "Rate: \(event.note2!)"
                 cell.backgroundColor = UIColor.lightGray
+                cell.cellImage.image =   placeStatusImage(cell: cell, event: event)
             }
         }
         return cell
     }
+    
+    func placeStatusImage(cell:MyTableViewCell, event:Event) -> UIImage{
+        if event.progresStatus == Status.TODO{
+            return #imageLiteral(resourceName: "plus")
+            
+        }
+        if event.progresStatus == Status.PENDING{
+            return  #imageLiteral(resourceName: "loading")
+            
+        }
+        if event.progresStatus == Status.DONE{
+            return #imageLiteral(resourceName: "checked")
+        }
+        return #imageLiteral(resourceName: "plus")
+    }
+
     
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return IndicatorInfo(title: "Movies")

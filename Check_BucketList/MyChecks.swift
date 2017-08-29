@@ -9,78 +9,48 @@
 import UIKit
 import XLPagerTabStrip
 
-//https://medium.com/michaeladeyeri/how-to-implement-android-like-tab-layouts-in-ios-using-swift-3-578516c3aa9
-
 class MyChecks: ButtonBarPagerTabStripViewController {
     
-    
     var navBar: UINavigationBar?
-    //let navBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width:, height: 64))
-    //let moviesViewController: MoviesViewController = MoviesViewController()
     @IBOutlet weak var tabBar: UITabBar!
+    @IBOutlet weak var profilePic: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // change selected bar color
-        settings.style.buttonBarBackgroundColor = UIColor.lightGray
-        settings.style.buttonBarItemBackgroundColor = UIColor.lightGray
-        settings.style.selectedBarBackgroundColor = UIColor.black
+        self.navigationController?.isNavigationBarHidden = true
+        designPager()
+    }
+    
+    func designPager(){
+        settings.style.buttonBarBackgroundColor = UIColor.white
+        settings.style.buttonBarItemBackgroundColor = UIColor.clear
+        settings.style.selectedBarBackgroundColor = UIColor.clear
         settings.style.buttonBarItemFont = .boldSystemFont(ofSize: 14)
-        settings.style.selectedBarHeight = 2.0
+        settings.style.selectedBarHeight = 1.0
         settings.style.buttonBarMinimumLineSpacing = 0
-        settings.style.buttonBarItemTitleColor = .black
+        settings.style.buttonBarItemTitleColor = UIColor.clear
         settings.style.buttonBarItemsShouldFillAvailiableWidth = true
         settings.style.buttonBarLeftContentInset = 0
         settings.style.buttonBarRightContentInset = 0
-        
         changeCurrentIndexProgressive = { [weak self] (oldCell: ButtonBarViewCell?, newCell: ButtonBarViewCell?, progressPercentage: CGFloat, changeCurrentIndex: Bool, animated: Bool) -> Void in
             guard changeCurrentIndex == true else { return }
-            oldCell?.label.textColor = .black
-            newCell?.label.textColor = UIColor.black
+            oldCell?.label.textColor = UIColor.white
+            newCell?.label.textColor = UIColor.white
         }
-        //navBar?.backgroundColor = UIColor.green
-        setNavbar()
-       // profilePic.layer.cornerRadius = profilePic.frame.size.width / 2;
-       // profilePic.layer.masksToBounds = true
-       // profilePic.layer.borderWidth = 1.5
-       // profilePic.layer.borderColor = UIColor.black.cgColor
-        
-        
     }
     
-    
-    func setNavbar(){
-        let screenSize: CGRect = UIScreen.main.bounds
-        self.navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: 64))
-        self.view.addSubview(navBar!);
-        let navItem = UINavigationItem(title: "Check");
-        let doneItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: nil, action: #selector(getter: UIAccessibilityCustomAction.selector));
-        navItem.rightBarButtonItem = doneItem;
-        navBar?.setItems([navItem], animated: false);
-        
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated);
+        self.navigationController?.isNavigationBarHidden = true
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+  
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-        let child_1 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MoviesViewController")
+        let child_1 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TODOViewController")
         
-        let child_2 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TVSeriesViewController")
+        let child_2 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DoneViewController")
         
         return [child_1, child_2]
     }
     
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

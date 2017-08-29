@@ -13,17 +13,16 @@
 //  Created by Matan on 17/06/2017.
 //  Copyright © 2017 Eliran Levy. All rights reserved.
 //
-/*
+
 import Foundation
-import MapKit
 import CoreData
+
 class DBManager  {
     
-    static var eventsList : [Event] = []
-    //required.addRecordI
+    static var eventsToDo : [Event] = []
+    static var eventsDone : [Event] = []
     
     init() {
-        
     }
     
     static func loadData(){
@@ -38,8 +37,7 @@ class DBManager  {
             var i = 0
             if results.count > 0 {
                 for res in results as! [NSManagedObject] {
-                    let recordItem = addRecord()
-                    DBManager.eventsList.insert(recordItem, at: i)
+                    let event = Event()
                     if let username = res.value(forKey: "username") as? String{
                         recordItem.playerName = username
                     }
@@ -54,12 +52,14 @@ class DBManager  {
                     if let lat = res.value(forKey: "lat") as? Double{
                         recordItem.lat = lat
                     }
+                    DBManager.eventsList.insert(recordItem, at: i)
+
                     i += 1
                     
                 }
-                DBManager.eventsList.sort{
+               /* DBManager.eventsList.sort{
                     $0.score! > $1.score!
-                }
+                }*/
                 DBManager.eventsList = Array(DBManager.eventsList.prefix(RECORD_TABLE_SIZE))
             }
             

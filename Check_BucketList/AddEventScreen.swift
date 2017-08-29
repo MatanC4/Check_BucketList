@@ -24,6 +24,8 @@ class AddEventScreen: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         //doneBtn.isEnabled = false
+        textBox.delegate = self
+
     }
 
     @IBAction func datePickerValueChanged(_ sender: Any) {
@@ -46,11 +48,10 @@ class AddEventScreen: UIViewController, UITextFieldDelegate {
         }
     }
 
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
-    
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         doneBtn.isEnabled = true

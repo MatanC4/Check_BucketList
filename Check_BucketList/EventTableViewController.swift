@@ -9,6 +9,14 @@
 import UIKit
 
 class EventTableViewController: UITableViewController {
+    
+    var event: Event?
+    var image: UIImage?
+    var titleLabel: String?
+    var note1Label: String?
+    var descLabel: String?
+    var tempactionButtonNew: UIButton?
+    
     @IBOutlet weak var actionButtonNew: UIButton!
     
     @IBOutlet weak var titleView: UIView!
@@ -26,24 +34,13 @@ class EventTableViewController: UITableViewController {
     }
     
     let myGreenColor = UIColor(red:25.0,green:209.0,blue:96.0,alpha:0.0)
-
-    
-    
-    
-    
     @IBOutlet weak var navBar: UINavigationItem!
-
 
     @IBAction func closeSegue(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     @IBOutlet weak var closeBtn: UIButton!
-    var event:Event?
-    var image: UIImage?
-    var titleLabel: String?
-    var note1Label: String?
-    var descLabel: String?
-    var tempactionButtonNew: UIButton?
+    
     
     @IBOutlet weak var note1Content: UILabel!
     private let tabelHeaderViewHeight: CGFloat = 350.0
@@ -76,8 +73,8 @@ class EventTableViewController: UITableViewController {
             
         }
         if segue.identifier == "addEventSegue"{
-                let nav = segue.destination as! UINavigationController
-                let add = nav.topViewController as! AddEventScreen
+                let add = segue.destination as! AddEventScreen
+                //let add = nav.topViewController as! AddEventScreen
                 if let tempEvent = event{
                     add.event = tempEvent
                 }
@@ -91,16 +88,16 @@ class EventTableViewController: UITableViewController {
         self.actionButtonNew.layer.cornerRadius = 16.0
         self.actionButtonNew.layer.masksToBounds = true
         
-        event?.progresStatus = Status.TODO
+        event?.progresStatus = "PENDING"
         let status = event?.progresStatus
-        if status == Status.TODO {
+        if status == "TODO" {
             actionButtonNew.setTitle("Add", for: .normal)
         }
-            if status == Status.PENDING {
+            if status == "PENDING" {
             actionButtonNew?.backgroundColor = UIColor.orange
                 actionButtonNew.setTitle("Mark Done", for: .normal)
         }
-            if status == Status.DONE {
+            if status == "DONE" {
             actionButtonNew?.backgroundColor = UIColor.darkGray
             actionButtonNew.setTitle("Done", for: .normal)
         }

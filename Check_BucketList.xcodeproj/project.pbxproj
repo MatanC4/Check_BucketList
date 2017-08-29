@@ -19,7 +19,6 @@
 		4563B06A1F3DBD7E006C5243 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4563B0691F3DBD7E006C5243 /* MoviesViewController.swift */; };
 		4563F6961F51DF31008111CA /* RateScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4563F6951F51DF31008111CA /* RateScreen.swift */; };
 		4575DE381F3E36C200A47026 /* TVSeriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4575DE371F3E36C200A47026 /* TVSeriesViewController.swift */; };
-		4575DE3A1F3E3B5400A47026 /* BooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4575DE391F3E3B5400A47026 /* BooksViewController.swift */; };
 		4575DE3C1F3F290900A47026 /* EventHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4575DE3B1F3F290900A47026 /* EventHeaderView.swift */; };
 		4575DE3E1F3F2B8400A47026 /* DetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4575DE3D1F3F2B8400A47026 /* DetailsTableViewCell.swift */; };
 		4575DE411F3F2D3E00A47026 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4575DE401F3F2D3E00A47026 /* EventTableViewController.swift */; };
@@ -29,7 +28,8 @@
 		45C4EB3F1F3DF4C40019D729 /* ExploreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C4EB3E1F3DF4C40019D729 /* ExploreVC.swift */; };
 		45C6EF281F523330009D2B9E /* AddEventScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C6EF271F523330009D2B9E /* AddEventScreen.swift */; };
 		45C6EF2A1F5467F5009D2B9E /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C6EF291F5467F5009D2B9E /* DBManager.swift */; };
-		45C6EF2C1F547C28009D2B9E /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C6EF2B1F547C28009D2B9E /* EventViewController.swift */; };
+		45C6EF2E1F55E1A6009D2B9E /* TODOViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C6EF2D1F55E1A6009D2B9E /* TODOViewController.swift */; };
+		45C6EF301F55E1BC009D2B9E /* DoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C6EF2F1F55E1BC009D2B9E /* DoneViewController.swift */; };
 		45DA3E701F36160F00E35B65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DA3E6F1F36160F00E35B65 /* AppDelegate.swift */; };
 		45DA3E721F36160F00E35B65 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DA3E711F36160F00E35B65 /* ViewController.swift */; };
 		45DA3E751F36160F00E35B65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45DA3E731F36160F00E35B65 /* Main.storyboard */; };
@@ -76,7 +76,6 @@
 		4563B0691F3DBD7E006C5243 /* MoviesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
 		4563F6951F51DF31008111CA /* RateScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RateScreen.swift; sourceTree = "<group>"; };
 		4575DE371F3E36C200A47026 /* TVSeriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVSeriesViewController.swift; sourceTree = "<group>"; };
-		4575DE391F3E3B5400A47026 /* BooksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BooksViewController.swift; sourceTree = "<group>"; };
 		4575DE3B1F3F290900A47026 /* EventHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventHeaderView.swift; sourceTree = "<group>"; };
 		4575DE3D1F3F2B8400A47026 /* DetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsTableViewCell.swift; sourceTree = "<group>"; };
 		4575DE401F3F2D3E00A47026 /* EventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewController.swift; sourceTree = "<group>"; };
@@ -86,7 +85,8 @@
 		45C4EB3E1F3DF4C40019D729 /* ExploreVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreVC.swift; sourceTree = "<group>"; };
 		45C6EF271F523330009D2B9E /* AddEventScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEventScreen.swift; sourceTree = "<group>"; };
 		45C6EF291F5467F5009D2B9E /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
-		45C6EF2B1F547C28009D2B9E /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
+		45C6EF2D1F55E1A6009D2B9E /* TODOViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TODOViewController.swift; sourceTree = "<group>"; };
+		45C6EF2F1F55E1BC009D2B9E /* DoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneViewController.swift; sourceTree = "<group>"; };
 		45DA3E6C1F36160F00E35B65 /* Check_BucketList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Check_BucketList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45DA3E6F1F36160F00E35B65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45DA3E711F36160F00E35B65 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -153,7 +153,6 @@
 				4575DE3B1F3F290900A47026 /* EventHeaderView.swift */,
 				4575DE3D1F3F2B8400A47026 /* DetailsTableViewCell.swift */,
 				4575DE401F3F2D3E00A47026 /* EventTableViewController.swift */,
-				45C6EF2B1F547C28009D2B9E /* EventViewController.swift */,
 			);
 			name = Event_Details;
 			sourceTree = "<group>";
@@ -161,9 +160,10 @@
 		45A219C41F44DD9E00652B3D /* Cat_ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				4575DE391F3E3B5400A47026 /* BooksViewController.swift */,
 				4575DE371F3E36C200A47026 /* TVSeriesViewController.swift */,
 				4563B0691F3DBD7E006C5243 /* MoviesViewController.swift */,
+				45C6EF2D1F55E1A6009D2B9E /* TODOViewController.swift */,
+				45C6EF2F1F55E1BC009D2B9E /* DoneViewController.swift */,
 			);
 			name = Cat_ViewControllers;
 			sourceTree = "<group>";
@@ -554,7 +554,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4563B05E1F3A1CDA006C5243 /* APIManager.swift in Sources */,
-				4575DE3A1F3E3B5400A47026 /* BooksViewController.swift in Sources */,
 				45C4EB3F1F3DF4C40019D729 /* ExploreVC.swift in Sources */,
 				4575DE411F3F2D3E00A47026 /* EventTableViewController.swift in Sources */,
 				45A219C61F44EDB900652B3D /* MyChecks.swift in Sources */,
@@ -562,14 +561,15 @@
 				45C6EF281F523330009D2B9E /* AddEventScreen.swift in Sources */,
 				45DA3E721F36160F00E35B65 /* ViewController.swift in Sources */,
 				45DA3E781F36160F00E35B65 /* Check_BucketList.xcdatamodeld in Sources */,
-				45C6EF2C1F547C28009D2B9E /* EventViewController.swift in Sources */,
 				4575DE3C1F3F290900A47026 /* EventHeaderView.swift in Sources */,
 				45DA3E701F36160F00E35B65 /* AppDelegate.swift in Sources */,
+				45C6EF301F55E1BC009D2B9E /* DoneViewController.swift in Sources */,
 				4563B0641F3BB347006C5243 /* APIDetails.swift in Sources */,
 				4563B0521F3A03D8006C5243 /* Category.swift in Sources */,
 				4575DE3E1F3F2B8400A47026 /* DetailsTableViewCell.swift in Sources */,
 				4563F6961F51DF31008111CA /* RateScreen.swift in Sources */,
 				4563B05B1F3A1070006C5243 /* MyTableViewCell.swift in Sources */,
+				45C6EF2E1F55E1A6009D2B9E /* TODOViewController.swift in Sources */,
 				4563B06A1F3DBD7E006C5243 /* MoviesViewController.swift in Sources */,
 				45F89E2B1F51DBDB009F370B /* Status.swift in Sources */,
 				45C6EF2A1F5467F5009D2B9E /* DBManager.swift in Sources */,

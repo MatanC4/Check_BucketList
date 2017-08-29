@@ -60,7 +60,7 @@ class ExploreVC: ButtonBarPagerTabStripViewController {
         settings.style.buttonBarItemBackgroundColor = UIColor.white
         settings.style.selectedBarBackgroundColor = UIColor.black
         settings.style.buttonBarItemFont = .boldSystemFont(ofSize: 14)
-        settings.style.selectedBarHeight = 2.0
+        settings.style.selectedBarHeight = 0.5
         settings.style.buttonBarMinimumLineSpacing = 0
         //settings.style.buttonBarItemTitleColor = .white
         settings.style.buttonBarItemsShouldFillAvailiableWidth = true

@@ -14,7 +14,7 @@ class Event: NSObject {
     var title: String?
     var category: Categories?
     var desc: String?
-    var progresStatus: Status = .TODO
+    var progresStatus: String = "TODO"
     var note1: String?
     var note2: String?
     var userRating: Int?
