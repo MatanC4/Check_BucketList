@@ -12,10 +12,6 @@ import XLPagerTabStrip
 class DoneViewController: UIViewController ,UITableViewDelegate , UITableViewDataSource , IndicatorInfoProvider {
     
     @IBOutlet weak var tableView: UITableView!
- 
-    
-    //var apiManager = APIManager()
-    //var moviesArrTrending: [MyEvent]?
     var moviesApi = MoviesAPI()
     var selectedIndexPath: IndexPath!
     
@@ -25,10 +21,7 @@ class DoneViewController: UIViewController ,UITableViewDelegate , UITableViewDat
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.navigationController?.isNavigationBarHidden = true
-        //navigationController?.navigationBar.barTintColor = .white
-        //navigationController?.navigationBar.backgroundColor = UIColor.white
         self.tableView.reloadData()
-        
     }
     
      override func viewDidAppear(_ animated: Bool) {
@@ -84,7 +77,7 @@ class DoneViewController: UIViewController ,UITableViewDelegate , UITableViewDat
         if event.progresStatus == "DONE"{
             return #imageLiteral(resourceName: "checked")
         }
-        return #imageLiteral(resourceName: "plus")
+        return #imageLiteral(resourceName: "picture")
     }
     
     
@@ -104,9 +97,5 @@ class DoneViewController: UIViewController ,UITableViewDelegate , UITableViewDat
             }
         }
     }
-    
-    
-    
-    
 }
 

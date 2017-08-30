@@ -10,17 +10,7 @@ import UIKit
 
 class RateScreen: UIViewController {
     
-    //@IBAction func closeButtonTapped(_ sender: Any) {
-       // self.dismiss(animated: true, completion: nil)
-
-    //}
-   // @IBAction func skipTapped(_ sender: Any) {
-    //    self.dismiss(animated: true, completion: nil)
-
-    //}
-    var event:MyEvent?
-    var tempImage: UIImage?
-    var eventTempName: String?
+    
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var eventImage: UIImageView!
     @IBOutlet weak var questionTitle: UILabel!
@@ -31,7 +21,11 @@ class RateScreen: UIViewController {
     @IBOutlet weak var happy: UIButton!
     @IBOutlet weak var inlove: UIButton!
     
-enum ButtonType: Int { case ang = 0, bor,conf,happ,inlo  }
+    var event:MyEvent?
+    var tempImage: UIImage?
+    var eventTempName: String?
+    
+    enum ButtonType: Int { case ang = 0, bor,conf,happ,inlo  }
     
     @IBAction func emojiTapped(_ sender: UIButton) {
         
@@ -54,21 +48,19 @@ enum ButtonType: Int { case ang = 0, bor,conf,happ,inlo  }
         showAlert()
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setUI()
+    }
+    
     func showAlert()  {
         let alert = UIAlertController(title: "", message: "Thanks for rating \(eventTempName!)", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Next please", style: UIAlertActionStyle.default, handler: { action in self.dismiss(animated: true, completion: nil)}))
         self.present(alert, animated: true, completion: nil)
     }
     
-    
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setUI()
-    }
-
     @IBAction func skipTapped(_ sender: Any) {
-         self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     func setUI(){
@@ -77,6 +69,4 @@ enum ButtonType: Int { case ang = 0, bor,conf,happ,inlo  }
         self.eventImage.layer.masksToBounds = true
         self.eventName.text = eventTempName
     }
-    
-
 }

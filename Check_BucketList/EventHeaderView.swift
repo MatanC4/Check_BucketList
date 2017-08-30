@@ -17,10 +17,10 @@ class EventHeaderView: UIView{
     
     weak var event:MyEvent?
     
-    init()
-    {
+    init(){
         super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0 ))
     }
+    
     convenience init (withEvent event: MyEvent)
     {
         self.init()
@@ -31,6 +31,7 @@ class EventHeaderView: UIView{
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+    
     var image : UIImage? {
         didSet {
             if let image = image {

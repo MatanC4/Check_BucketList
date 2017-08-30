@@ -34,7 +34,7 @@ class MyChecks: ButtonBarPagerTabStripViewController {
         
         return [child_1, child_2]
     }
-
+    
     func designPager(){
         settings.style.buttonBarBackgroundColor = UIColor.white
         settings.style.buttonBarItemBackgroundColor = UIColor.clear
@@ -52,7 +52,7 @@ class MyChecks: ButtonBarPagerTabStripViewController {
             newCell?.label.textColor = UIColor.white
         }
     }
-
+    
     func fetchAndShapeProfilePic(){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
@@ -76,8 +76,6 @@ class MyChecks: ButtonBarPagerTabStripViewController {
         }
         profilePic.layer.cornerRadius = profilePic.frame.size.width / 2;
         profilePic.layer.masksToBounds = true
-        //profilePic.layer.borderWidth = 1.5
-        //profilePic.layer.borderColor = UIColor.black.cgColor
         
     }
     

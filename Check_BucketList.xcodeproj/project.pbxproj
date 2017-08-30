@@ -9,10 +9,7 @@
 /* Begin PBXBuildFile section */
 		0AA9C0579F5D225C9BADDB6C /* Pods_Check_BucketListUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A687241B654BE717743CB9A /* Pods_Check_BucketListUITests.framework */; };
 		4563B0521F3A03D8006C5243 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4563B0511F3A03D8006C5243 /* Category.swift */; };
-		4563B0571F3A055B006C5243 /* MainMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4563B0551F3A055B006C5243 /* MainMenuCell.swift */; };
-		4563B0581F3A055B006C5243 /* MainMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4563B0561F3A055B006C5243 /* MainMenuCell.xib */; };
 		4563B05B1F3A1070006C5243 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4563B0591F3A1070006C5243 /* MyTableViewCell.swift */; };
-		4563B05C1F3A1070006C5243 /* MyTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4563B05A1F3A1070006C5243 /* MyTableView.xib */; };
 		4563B05E1F3A1CDA006C5243 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4563B05D1F3A1CDA006C5243 /* APIManager.swift */; };
 		4563B0601F3A1D18006C5243 /* MyEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4563B05F1F3A1D18006C5243 /* MyEvent.swift */; };
 		4563B0641F3BB347006C5243 /* APIDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4563B0631F3BB347006C5243 /* APIDetails.swift */; };
@@ -64,10 +61,7 @@
 		408DC349A7CB69D982E81ACA /* Pods-Check_BucketListUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Check_BucketListUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Check_BucketListUITests/Pods-Check_BucketListUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		425DADCE462AACBE62ECBCA1 /* Pods-Check_BucketListUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Check_BucketListUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Check_BucketListUITests/Pods-Check_BucketListUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4563B0511F3A03D8006C5243 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
-		4563B0551F3A055B006C5243 /* MainMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuCell.swift; sourceTree = "<group>"; };
-		4563B0561F3A055B006C5243 /* MainMenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenuCell.xib; sourceTree = "<group>"; };
 		4563B0591F3A1070006C5243 /* MyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
-		4563B05A1F3A1070006C5243 /* MyTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyTableView.xib; sourceTree = "<group>"; };
 		4563B05D1F3A1CDA006C5243 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		4563B05F1F3A1D18006C5243 /* MyEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyEvent.swift; sourceTree = "<group>"; };
 		4563B0631F3BB347006C5243 /* APIDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIDetails.swift; sourceTree = "<group>"; };
@@ -178,7 +172,6 @@
 			children = (
 				45F89E2A1F51DBDB009F370B /* Status.swift */,
 				4563B05F1F3A1D18006C5243 /* MyEvent.swift */,
-				4563B0551F3A055B006C5243 /* MainMenuCell.swift */,
 				4563B0591F3A1070006C5243 /* MyTableViewCell.swift */,
 			);
 			name = Entities;
@@ -233,8 +226,6 @@
 				45DA3E7B1F36161000E35B65 /* LaunchScreen.storyboard */,
 				45DA3E7E1F36161000E35B65 /* Info.plist */,
 				45DA3E761F36160F00E35B65 /* Check_BucketList.xcdatamodeld */,
-				4563B0561F3A055B006C5243 /* MainMenuCell.xib */,
-				4563B05A1F3A1070006C5243 /* MyTableView.xib */,
 				45C6EF321F572FDB009D2B9E /* Entities */,
 				45C6EF311F572FBA009D2B9E /* Tabs */,
 				4563B0501F3A03C4006C5243 /* APIs */,
@@ -407,8 +398,6 @@
 				45DA3E7D1F36161000E35B65 /* LaunchScreen.storyboard in Resources */,
 				45DA3E7A1F36161000E35B65 /* Assets.xcassets in Resources */,
 				45DA3E751F36160F00E35B65 /* Main.storyboard in Resources */,
-				4563B05C1F3A1070006C5243 /* MyTableView.xib in Resources */,
-				4563B0581F3A055B006C5243 /* MainMenuCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,7 +581,6 @@
 				45F89E2B1F51DBDB009F370B /* Status.swift in Sources */,
 				45C6EF2A1F5467F5009D2B9E /* DBManager.swift in Sources */,
 				4575DE381F3E36C200A47026 /* TVSeriesViewController.swift in Sources */,
-				4563B0571F3A055B006C5243 /* MainMenuCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

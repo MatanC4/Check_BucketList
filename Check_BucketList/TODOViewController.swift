@@ -12,10 +12,6 @@ import XLPagerTabStrip
 class TODOViewController: UIViewController ,UITableViewDelegate , UITableViewDataSource , IndicatorInfoProvider {
     
     @IBOutlet weak var tableView: UITableView!
-    
- 
-    //var apiManager = APIManager()
-    //var arr:[MyEvent]?
     var moviesApi = MoviesAPI()
     var selectedIndexPath: IndexPath!
 
@@ -29,9 +25,9 @@ class TODOViewController: UIViewController ,UITableViewDelegate , UITableViewDat
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    /*override func viewDidAppear(_ animated: Bool) {
      tableView.reloadData()
-     }
+     }*/
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -82,13 +78,14 @@ class TODOViewController: UIViewController ,UITableViewDelegate , UITableViewDat
         if event.progresStatus == "DONE"{
             return #imageLiteral(resourceName: "checked")
         }
-        return #imageLiteral(resourceName: "plus")
+        return #imageLiteral(resourceName: "picture")
     }
     
     
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return IndicatorInfo(title: "TO DO")
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowDetailsSegue"{
             let detailTVC = segue.destination as! EventTableViewController
@@ -102,9 +99,5 @@ class TODOViewController: UIViewController ,UITableViewDelegate , UITableViewDat
             }
         }
     }
-    
-  
-    
-   
 }
 

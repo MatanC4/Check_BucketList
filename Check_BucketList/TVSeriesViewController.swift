@@ -12,7 +12,6 @@ import XLPagerTabStrip
 class TVSeriesViewController: UIViewController ,UITableViewDelegate , UITableViewDataSource, IndicatorInfoProvider, UISearchBarDelegate{
     
     @IBOutlet weak var tvSeriesTableView: UITableView!
-    //var apiManager = APIManager()
     var tvSeriesArr: [MyEvent]?
     var tvSeriesAPI = MoviesAPI()
     var selectedIndexPath: IndexPath!
@@ -34,14 +33,14 @@ class TVSeriesViewController: UIViewController ,UITableViewDelegate , UITableVie
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tvSeriesTableView.tableHeaderView = searchController.searchBar
+        searchController.searchBar.placeholder = "Search for TV Series"
         self.tvSeriesTableView.reloadData()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
+    /*override func viewDidAppear(_ animated: Bool) {
         tvSeriesTableView.reloadData()
-    }
+    }*/
    
-    
     func numberOfSections(in tableView: UITableView) -> Int {        
         if let count = tvSeriesArr?.count {
             return count
@@ -57,8 +56,8 @@ class TVSeriesViewController: UIViewController ,UITableViewDelegate , UITableVie
         selectedIndexPath = indexPath
         self.performSegue(withIdentifier: "ShowDetailsSegue", sender: "")
         tableView.deselectRow(at: indexPath, animated: true)
-
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath) as! MyTableViewCell
@@ -105,7 +104,6 @@ class TVSeriesViewController: UIViewController ,UITableViewDelegate , UITableVie
     }
     
     func fetchFromApi(url:String){
-        //"https://api.themoviedb.org/3/movie/popular?api_key=8a5c1fef1a13c3293e4c069fde43be81&language=en-US&page=1"
         let poplularMoviesUrl = URL(string: url)
         let task = URLSession.shared.dataTask(with: poplularMoviesUrl!) { (data, response, error) in
             if error != nil{
@@ -154,7 +152,6 @@ class TVSeriesViewController: UIViewController ,UITableViewDelegate , UITableVie
                     if let filePath = series["poster_path"] as? String {
                         event.thumbnailImage = "\(self.tvSeriesAPI.IMAGE_BASE_URL)\(String(describing : self.tvSeriesAPI.imageSizes[3]))\(filePath)"
                     }
-                    
                     tvSeriesArr!.append(event)
                 }
             }
@@ -171,7 +168,6 @@ class TVSeriesViewController: UIViewController ,UITableViewDelegate , UITableVie
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         tvSeriesTableView.reloadData()
     }
-
 }
 extension TVSeriesViewController : UISearchResultsUpdating {
     // MARK: - UISearchResultsUpdating Delegate

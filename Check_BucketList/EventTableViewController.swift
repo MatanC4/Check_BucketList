@@ -10,14 +10,7 @@ import UIKit
 
 class EventTableViewController: UITableViewController {
     
-    var event: MyEvent?
-    var image: UIImage?
-    var titleLabel: String?
-    var note1Label: String?
-    var descLabel: String?
-    var tempactionButtonNew: UIButton?
-    var commit:String?
-    var myCell:MyTableViewCell?
+
     
     @IBOutlet weak var actionButtonNew: UIButton!
     
@@ -32,20 +25,23 @@ class EventTableViewController: UITableViewController {
             self.performSegue(withIdentifier: "addEventSegue", sender: "")
 
         }
-       
-
     }
-    
-    let myGreenColor = UIColor(red:25.0,green:209.0,blue:96.0,alpha:0.0)
     @IBOutlet weak var navBar: UINavigationItem!
-
     @IBAction func closeSegue(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     @IBOutlet weak var closeBtn: UIButton!
-    
-    
     @IBOutlet weak var note1Content: UILabel!
+    
+    var event: MyEvent?
+    var image: UIImage?
+    var titleLabel: String?
+    var note1Label: String?
+    var descLabel: String?
+    var tempactionButtonNew: UIButton?
+    var commit:String?
+    var myCell:MyTableViewCell?
+    let myGreenColor = UIColor(red:25.0,green:209.0,blue:96.0,alpha:0.0)
     private let tabelHeaderViewHeight: CGFloat = 350.0
     private let tabelHeaderViewCutAway: CGFloat = 40.0
     var headerView: EventHeaderView!
@@ -57,7 +53,8 @@ class EventTableViewController: UITableViewController {
         navigationController?.navigationBar.backgroundColor = UIColor(colorLiteralRed: 0.0, green: 0.0, blue: 0.0, alpha: 0.3)
         setHeaderView()
         setActionButtonNew()
-           }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         decideButton()
     }
@@ -75,8 +72,8 @@ class EventTableViewController: UITableViewController {
             if let tempimage  = self.image{
                 rate.tempImage = tempimage
             }
-            
         }
+        
         if segue.identifier == "addEventSegue"{
                 let add = segue.destination as! AddEventScreen
                 //let add = nav.topViewController as! AddEventScreen
@@ -89,13 +86,9 @@ class EventTableViewController: UITableViewController {
     }
   
     func setActionButtonNew(){
-        
         self.actionButtonNew.layer.cornerRadius = 16.0
         self.actionButtonNew.layer.masksToBounds = true
-        
-        //event?.progresStatus = "PENDING"
         decideButton()
-
     }
     
     func decideButton(){
@@ -103,7 +96,6 @@ class EventTableViewController: UITableViewController {
         if status == "TODO" {
             actionButtonNew.setTitle("Add", for: .normal)
             actionButtonNew.isUserInteractionEnabled = true
-
         }
         if status == "PENDING" {
             actionButtonNew?.backgroundColor = UIColor.orange
@@ -166,13 +158,15 @@ class EventTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DetailsTableViewCell", for: indexPath) as! DetailsTableViewCell
         cell.titleLabel.text = titleLabel
         cell.descLabel.text = descLabel
+        cell.note1.text = event?.note1
+        cell.note2.text = event?.note2
         if event?.commit == ""{
             cell.commitment.text = ""
         }else{
             let tempCommit = event?.commit
             cell.commitment.text = "Commitment: \(String(describing: tempCommit)))"
         }
-        cell.backgroundColor = UIColor.darkGray
+        //cell.backgroundColor = UIColor.darkGray
             return cell
     }
 }

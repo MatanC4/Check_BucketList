@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     var profilePic: UIImageView? = UIImageView()
     var imageurl: String?
     var userName: String? = ""
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         //DBManager.loadData()
         //deleteImage()
     }
-
+    
     func shapeButtons(){
         fbLoginBtn.layer.cornerRadius = 7.0
         fbLoginBtn.layer.masksToBounds = true
@@ -58,8 +58,8 @@ class ViewController: UIViewController {
                     if let responseDictionary = result as? [String:AnyObject]{
                         self.userName = responseDictionary["name"] as? String
                         let userID = responseDictionary["id"] as! String
-                            let facebookProfileUrl = "https://graph.facebook.com/\(userID)/picture?type=large"
-                            self.getImage( url: facebookProfileUrl, profilePicture: self.profilePic!)
+                        let facebookProfileUrl = "https://graph.facebook.com/\(userID)/picture?type=large"
+                        self.getImage( url: facebookProfileUrl, profilePicture: self.profilePic!)
                     }
                     
                 }
@@ -67,24 +67,24 @@ class ViewController: UIViewController {
         }
     }
     
- 
     
-func saveImage(image: UIImage){
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    let context = appDelegate.persistentContainer.viewContext
-    let result = NSEntityDescription.insertNewObject(forEntityName: "FBProfile", into: context)
     
-    let imgData = UIImageJPEGRepresentation(image, 1)
-    result.setValue(imgData, forKey: "image")
-    result.setValue(userName , forKey: "user_name")
-    do {
-        try context.save()
+    func saveImage(image: UIImage){
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let result = NSEntityDescription.insertNewObject(forEntityName: "FBProfile", into: context)
+        
+        let imgData = UIImageJPEGRepresentation(image, 1)
+        result.setValue(imgData, forKey: "image")
+        result.setValue(userName , forKey: "user_name")
+        do {
+            try context.save()
         }catch{
-        fatalError("failed to save context: \(error)")
+            fatalError("failed to save context: \(error)")
+        }
     }
-}
-
-func getImage(url: String , profilePicture: UIImageView){
+    
+    func getImage(url: String , profilePicture: UIImageView){
         let imageUrl = URL(string: url)
         URLSession.shared.dataTask(with: imageUrl!) { (data, response, error) in
             if error != nil{
@@ -98,15 +98,15 @@ func getImage(url: String , profilePicture: UIImageView){
                         DispatchQueue.main.async {
                             //self.profilePic.image = UIImage(data: data!)
                             print(data!)
-                           profilePicture.image = UIImage(data: data!)
+                            profilePicture.image = UIImage(data: data!)
                             print("i should have the photo now :)")
                             self.saveImage(image: profilePicture.image!)
                         }
                     }
                 }
             }
-        }.resume()
-}
+            }.resume()
+    }
     
     //debug use only
     
@@ -129,6 +129,6 @@ func getImage(url: String , profilePicture: UIImageView){
             print(" error : \(error) \(error.userInfo)")
         }
     }
-
-
+    
+    
 }

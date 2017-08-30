@@ -31,7 +31,6 @@ class DBManager  {
         self.eventsDone = [MyEvent]()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-        
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Check")
         request.returnsObjectsAsFaults = false
         
@@ -85,18 +84,13 @@ class DBManager  {
                         default:
                             break
                     }
-                    //DBManager.eventsList.insert(recordItem, at: i)
                 }
-               /* DBManager.eventsList.sort{
-                    $0.score! > $1.score!
-                }*/
-                //DBManager.eventsList = Array(DBManager.eventsList.prefix(RECORD_TABLE_SIZE))
+               
             }
             
         }catch{
             fatalError("could not load data from core data:  \(error)")
         }
-        
     }
     
     static func addRecordAndSave(myEvent:MyEvent){
@@ -114,12 +108,8 @@ class DBManager  {
         event.setValue(myEvent.commit, forKey: "commit")
         event.setValue(myEvent.userRating, forKey: "userRating")
 
-        
         do {
             try context.save()
-            //debug
-            //for x in DBManager.eventsToDo!{
-               // print(x.title!)
         }catch{
             fatalError("failed to save context: \(error)")
         }

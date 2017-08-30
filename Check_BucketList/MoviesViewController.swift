@@ -11,13 +11,9 @@ import XLPagerTabStrip
 
 class MoviesViewController: UIViewController ,UITableViewDelegate , UITableViewDataSource , IndicatorInfoProvider , UISearchBarDelegate {
     
-    let searchController = UISearchController(searchResultsController: nil)
-    //@IBOutlet weak var mySearchBar: UISearchBar!
-    
     @IBOutlet weak var moviesTableView: UITableView!
-    //var apiManager = APIManager()
+    let searchController = UISearchController(searchResultsController: nil)
     var moviesArrTrending: [MyEvent]?
-    var moviesArrSearch : [MyEvent]?
     var moviesApi = MoviesAPI()
     var selectedIndexPath: IndexPath!
     let trendingUrl: String = "https://api.themoviedb.org/3/movie/popular?api_key=8a5c1fef1a13c3293e4c069fde43be81&language=en-US&page=1"
@@ -29,14 +25,13 @@ class MoviesViewController: UIViewController ,UITableViewDelegate , UITableViewD
         self.moviesTableView.dataSource = self
         fetchFromApi(url: trendingUrl)
         self.navigationController?.isNavigationBarHidden = true
-        //navigationController?.navigationBar.barTintColor = .white
-        //navigationController?.navigationBar.backgroundColor = UIColor.white
         fetchFromApi(url: trendingUrl)
         searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         moviesTableView.tableHeaderView = searchController.searchBar
+        searchController.searchBar.placeholder = "Search for Movies"
         self.moviesTableView.reloadData()
         
     }
@@ -60,16 +55,6 @@ class MoviesViewController: UIViewController ,UITableViewDelegate , UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndexPath = indexPath
         self.performSegue(withIdentifier: "ShowDetailsSegue", sender: "")
-        /*let detailTVC = EventTableViewController()
-        let cell  = moviesTableView.cellForRow(at: selectedIndexPath ) as! MyTableViewCell
-        detailTVC.image = cell.cellImage.image
-        
-        if let event = moviesArrTrending?[selectedIndexPath.section]{
-            detailTVC.event = event
-            detailTVC.titleLabel = event.title
-            detailTVC.descLabel = event.desc
-        }
-        self.navigationController?.pushViewController(detailTVC, animated: true)*/
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -85,7 +70,7 @@ class MoviesViewController: UIViewController ,UITableViewDelegate , UITableViewD
                 cell.note1.text = event.note1
                 cell.note2.text = "Rate: \(event.note2!)"
                 //cell.backgroundColor = UIColor.lightGray
-                cell.cellImage.image =   placeStatusImage(cell: cell, event: event)
+                //cell.cellImage.image =  placeStatusImage(cell: cell, event: event)
             }
         }
         return cell
@@ -103,13 +88,13 @@ class MoviesViewController: UIViewController ,UITableViewDelegate , UITableViewD
         if event.progresStatus == "DONE"{
             return #imageLiteral(resourceName: "checked")
         }
-        return #imageLiteral(resourceName: "plus")
+        return #imageLiteral(resourceName: "picture")
     }
 
-    
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return IndicatorInfo(title: "Movies")
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowDetailsSegue"{
             let detailTVC = segue.destination as! EventTableViewController
@@ -135,7 +120,6 @@ class MoviesViewController: UIViewController ,UITableViewDelegate , UITableViewD
         }
     }
     func fetchFromApi(url:String){
-        //"https://api.themoviedb.org/3/movie/popular?api_key=8a5c1fef1a13c3293e4c069fde43be81&language=en-US&page=1"
         let poplularMoviesUrl = URL(string: url)
         let task = URLSession.shared.dataTask(with: poplularMoviesUrl!) { (data, response, error) in
             if error != nil{
@@ -149,8 +133,6 @@ class MoviesViewController: UIViewController ,UITableViewDelegate , UITableViewD
                             self.parseResponse(innerJson)
                             self.moviesTableView.reloadData()
                         }
-
-
                     }catch {
                         print("some error")
                     }
@@ -219,26 +201,3 @@ extension MoviesViewController: UISearchResultsUpdating {
     }
 }
 
-/*class SegueFromLeft: UIStoryboardSegue
-{
-    override func perform()
-    {
-        let src = self.source
-        let dst = self.destination
-        
-        src.view.superview?.insertSubview(dst.view, aboveSubview: src.view)
-        dst.view.transform = CGAffineTransform(translationX: -src.view.frame.size.width, y: 0)
-        
-        
-        UIView.animate(withDuration: 0.25,
-                                   delay: 0.0,
-                                   options: .curveEaseInOut,
-                                   animations: {
-                                    dst.view.transform = CGAffineTransform(translationX: 0, y: 0)
-        },
-                                   completion: { finished in
-                                    src.present(dst, animated: false, completion: nil)
-        }
-        )
-    }
-}*/

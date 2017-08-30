@@ -14,9 +14,8 @@ import CoreData
 
 class ExploreVC: ButtonBarPagerTabStripViewController {
     @IBOutlet weak var scrollView: UIScrollView!
-    
     @IBOutlet weak var profilePic: UIImageView!
-    var navBar: UINavigationBar?
+    //var navBar: UINavigationBar?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,9 +46,6 @@ class ExploreVC: ButtonBarPagerTabStripViewController {
         }
         profilePic.layer.cornerRadius = profilePic.frame.size.width / 2;
         profilePic.layer.masksToBounds = true
-        //profilePic.layer.borderWidth = 1.5
-        //profilePic.layer.borderColor = UIColor.black.cgColor
-
     }
     
     
@@ -76,29 +72,10 @@ class ExploreVC: ButtonBarPagerTabStripViewController {
 
     }
     
-   /* func setNavbar(){
-        let screenSize: CGRect = UIScreen.main.bounds
-         self.navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: 64))
-        self.view.addSubview(navBar!);
-        let navItem = UINavigationItem(title: "Check");
-        let doneItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: nil, action: #selector(getter: UIAccessibilityCustomAction.selector));
-        navItem.rightBarButtonItem = doneItem;
-        navBar?.setItems([navItem], animated: false);
-
-    }*/
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         let child_1 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MoviesViewController")
         let child_2 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TVSeriesViewController")
         
             return [child_1 , child_2]
     }
-    
-
-
-
 }

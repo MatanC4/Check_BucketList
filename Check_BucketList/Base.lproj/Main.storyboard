@@ -708,7 +708,7 @@
                     <tabBarItem key="tabBarItem" title="My Checks" image="astronaut-with-a-flag" selectedImage="astronaut-with-a-flag" id="HqK-g0-McW"/>
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="g2e-7U-30y">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="g2e-7U-30y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -859,7 +859,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="lwL-Sa-sJn" firstAttribute="top" secondItem="ccE-ud-6dD" secondAttribute="bottom" constant="21" id="66j-cE-Bp6"/>
                             <constraint firstItem="ccE-ud-6dD" firstAttribute="leading" secondItem="lwL-Sa-sJn" secondAttribute="leading" constant="-16" id="6EG-XS-TnD"/>
@@ -1078,7 +1078,7 @@
             <objects>
                 <navigationController title="Rate Event" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="2lh-d8-cmr" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="qIM-17-18H">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qIM-17-18H">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1097,7 +1097,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QoL-hR-gNe" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Explore" image="compass" selectedImage="compass" id="FYA-Is-DbG"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="RvG-4Y-xNM">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RvG-4Y-xNM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

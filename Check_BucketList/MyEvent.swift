@@ -31,7 +31,7 @@ class MyEvent: NSObject {
         self.note2 = ""
         self.commit = ""
         self.commitDate = ""
-    
+        
     }
     
     init(thumbnailImage: String , title: String ,subtitle: String ,note: String, category: Categories , desc: String ) {
@@ -39,7 +39,6 @@ class MyEvent: NSObject {
         self.title = title
         self.category = category
         self.desc = desc
-    
     }
     
 }
