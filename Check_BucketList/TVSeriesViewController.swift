@@ -12,8 +12,8 @@ import XLPagerTabStrip
 class TVSeriesViewController: UIViewController ,UITableViewDelegate , UITableViewDataSource, IndicatorInfoProvider, UISearchBarDelegate{
     
     @IBOutlet weak var tvSeriesTableView: UITableView!
-    var apiManager = APIManager()
-    var tvSeriesArr: [Event]?
+    //var apiManager = APIManager()
+    var tvSeriesArr: [MyEvent]?
     var tvSeriesAPI = MoviesAPI()
     var selectedIndexPath: IndexPath!
     let trendingUrl: String = "https://api.themoviedb.org/3/tv/popular?api_key=8a5c1fef1a13c3293e4c069fde43be81&language=en-US&page=1"
@@ -37,9 +37,9 @@ class TVSeriesViewController: UIViewController ,UITableViewDelegate , UITableVie
         self.tvSeriesTableView.reloadData()
     }
 
-    /*override func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         tvSeriesTableView.reloadData()
-    }*/
+    }
    
     
     func numberOfSections(in tableView: UITableView) -> Int {        
@@ -56,8 +56,11 @@ class TVSeriesViewController: UIViewController ,UITableViewDelegate , UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndexPath = indexPath
         self.performSegue(withIdentifier: "ShowDetailsSegue", sender: "")
+        tableView.deselectRow(at: indexPath, animated: true)
+
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath) as! MyTableViewCell
         if tvSeriesArr != nil {
             if let event = tvSeriesArr?[indexPath.section]{
@@ -66,7 +69,7 @@ class TVSeriesViewController: UIViewController ,UITableViewDelegate , UITableVie
                 cell.setUpImage(event: event)
                 cell.note1.text = event.note1
                 cell.note2.text = "Rate: \(event.note2!)"
-                cell.backgroundColor = UIColor.darkGray
+                //cell.backgroundColor = UIColor.darkGray
             }
         }
         return cell
@@ -129,9 +132,9 @@ class TVSeriesViewController: UIViewController ,UITableViewDelegate , UITableVie
             print("Parsing JSON dictionary:\n\(responseDictionary)")
             print("########################################")
             if let results = responseDictionary["results"] as? [AnyObject]{
-                self.tvSeriesArr = [Event]()
+                self.tvSeriesArr = [MyEvent]()
                 for series in results{
-                    let event = Event()
+                    let event = MyEvent()
                     if let title = series["original_name"] as? String {
                         event.title = title
                     }else{

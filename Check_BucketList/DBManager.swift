@@ -16,51 +16,81 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 class DBManager  {
     
-    static var eventsToDo : [Event] = []
-    static var eventsDone : [Event] = []
+    static var eventsToDo : [MyEvent]?
+    static var eventsDone : [MyEvent]?
     
     init() {
     }
     
     static func loadData(){
+        self.eventsToDo = [MyEvent]()
+        self.eventsDone = [MyEvent]()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Event")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Check")
         request.returnsObjectsAsFaults = false
         
         do {
             let results = try context.fetch(request)
             var i = 0
+            var j = 0
             if results.count > 0 {
                 for res in results as! [NSManagedObject] {
-                    let event = Event()
-                    if let username = res.value(forKey: "username") as? String{
-                        recordItem.playerName = username
+                    let event = MyEvent()
+                    if let title = res.value(forKey: "title") as? String{
+                        event.title = title
                     }
-                    if let score = res.value(forKey: "score") as? Int{
-                        recordItem.score = score
+                    if let thumbnailImage = res.value(forKey: "thumbnailImage") as? String{
+                        event.thumbnailImage = thumbnailImage
                         
                     }
-                    if let long = res.value(forKey: "long") as? Double{
-                        recordItem.long = long
+                    if let progresStatus = res.value(forKey: "progresStatus") as? String{
+                        event.progresStatus = progresStatus
                         
                     }
-                    if let lat = res.value(forKey: "lat") as? Double{
-                        recordItem.lat = lat
+                    if let note2 = res.value(forKey: "note2") as? String{
+                        event.note2 = note2
                     }
-                    DBManager.eventsList.insert(recordItem, at: i)
-
-                    i += 1
+                    if let note1 = res.value(forKey: "note1") as? String{
+                        event.note1 = note1
+                    }
+                    if let desc = res.value(forKey: "desc") as? String{
+                        event.desc = desc
+                    }
+                    if let commitDate = res.value(forKey: "commitDate") as? String{
+                        event.commitDate = commitDate
+                    }
+                    if let commit = res.value(forKey: "commit") as? String{
+                        event.commit = commit
+                    }
+                    if let userRating = res.value(forKey: "userRating") as? Float{
+                        event.userRating = userRating
+                    }
                     
+                    
+                    switch(event.progresStatus){
+                        case "PENDING":
+                            self.eventsToDo?.insert(event, at: i)
+                            i+=1
+                        case "DONE":
+                            self.eventsDone?.insert(event, at: j)
+                            j+=1
+                        case "TODO":
+                            break
+                        default:
+                            break
+                    }
+                    //DBManager.eventsList.insert(recordItem, at: i)
                 }
                /* DBManager.eventsList.sort{
                     $0.score! > $1.score!
                 }*/
-                DBManager.eventsList = Array(DBManager.eventsList.prefix(RECORD_TABLE_SIZE))
+                //DBManager.eventsList = Array(DBManager.eventsList.prefix(RECORD_TABLE_SIZE))
             }
             
         }catch{
@@ -69,72 +99,49 @@ class DBManager  {
         
     }
     
-    static func saveData(myRecord: MyRecord){
+    static func addRecordAndSave(myEvent:MyEvent){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
-        let record = NSEntityDescription.insertNewObject(forEntityName: "Record", into: context)
-        record.setValue(myRecord.playerName, forKey: "username")
-        record.setValue(myRecord.score, forKey: "score")
-        record.setValue(myRecord.long, forKey: "long")
-        record.setValue(myRecord.lat, forKey: "lat")
+        let event = NSEntityDescription.insertNewObject(forEntityName: "Check", into: context)
+        event.setValue(myEvent.title, forKey: "title")
+        event.setValue(myEvent.thumbnailImage,forKey: "thumbnailImage")
+        event.setValue(myEvent.progresStatus, forKey: "progresStatus")
+        event.setValue(myEvent.note2, forKey: "note2")
+        event.setValue(myEvent.note1, forKey: "note1")
+        event.setValue(myEvent.desc, forKey: "desc")
+        event.setValue(myEvent.commitDate, forKey: "commitDate")
+        event.setValue(myEvent.commit, forKey: "commit")
+        event.setValue(myEvent.userRating, forKey: "userRating")
+
         
         do {
             try context.save()
             //debug
-            for x in DBManager.eventsList{
-                print(x.playerName!)
-                
-            }
+            //for x in DBManager.eventsToDo!{
+               // print(x.title!)
         }catch{
             fatalError("failed to save context: \(error)")
         }
     }
     
-    static func addRecord(playerName: String, score: Int, long: Double ,lat: Double){
-        
-        let record = MyRecord(playerName: playerName , score: score , long: long ,lat: lat)
-        if DBManager.eventsList.count >= RECORD_TABLE_SIZE {
-            DBManager.eventsList.removeLast()
-            print("The record list size is \(RECORD_TABLE_SIZE)")
-        }
-        DBManager.eventsList.append(record)
-        DBManager.eventsList.sort{
-            $0.score! > $1.score!
-        }
-        //deleteAllData(entity: "Record")
-        self.saveData(myRecord: record)
-    }
     
-    
-    static func getBestScore() -> Int{
-        if(!eventsList.isEmpty){
-            return DBManager.eventsList[0].score!
-        }
-        else{
-            return 0
-        }
-    }
-    
-    static func isNewRecord(score: Int) -> Bool {
-        if(!eventsList.isEmpty){
-            if score > eventsList[(eventsList.count)-1].score! {
-                return true
+    static func deleteFromToDo(event: MyEvent){
+        var i = 0
+        for  item in DBManager.eventsToDo! {
+            if item.title == event.title {
+                DBManager.eventsToDo?.remove(at: i)
             }
-            else {
-                return false
-            }
+            i+=1
         }
-        return true
     }
-    
     
     // clean core data
-    static func deleteAllData(entity: String)
+    static func deleteAllData()
     {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Record")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Check")
         fetchRequest.returnsObjectsAsFaults = false
         
         do
@@ -147,17 +154,39 @@ class DBManager  {
                 print("data deleted")
             }
         } catch let error as NSError {
-            print("Detele all data in \(entity) error : \(error) \(error.userInfo)")
+            print("Detele all data came across with an \(error)")
         }
     }
-    
+
+    static func EditExistingEvent(event:MyEvent){
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Check")
+        request.returnsObjectsAsFaults = false
+        
+        do {
+            let results = try context.fetch(request)
+            if results.count > 0 {
+                for res in results as! [NSManagedObject] {
+                    if event.title == res.value(forKey: "title") as? String{
+                        context.delete(res)
+                        addRecordAndSave(myEvent: event)
+                    }
+                }
+            }
+            
+        }catch{
+            fatalError("could not load data from core data:  \(error)")
+        }
+    }
     
 }
 
 
 
 
-*/
+
 
 
 

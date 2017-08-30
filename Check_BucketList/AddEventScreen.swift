@@ -20,7 +20,7 @@ class AddEventScreen: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var doneBtn: UIButton!
     @IBOutlet weak var datePicker: UIDatePicker!
-    var event: Event?
+    var event:MyEvent?
     override func viewDidLoad() {
         super.viewDidLoad()
         //doneBtn.isEnabled = false
@@ -43,11 +43,24 @@ class AddEventScreen: UIViewController, UITextFieldDelegate {
         }
         else{
             event?.commit = textBox.text
-            //saveData
+            if event != nil{
+            event?.progresStatus = "PENDING"
+            DBManager.eventsToDo?.append(event!)
+            DBManager.addRecordAndSave(myEvent: event!)
+            DBManager.loadData()
             showEventAddedAlert()
+           // let segue = UIStoryboardSegue()
+            //let detailTVC = segue.destination as! TODOViewController
+                
+            }else
+            {
+                print("Event\(String(describing: event?.title!)) is nil")
+            }
         }
     }
 
+    
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false

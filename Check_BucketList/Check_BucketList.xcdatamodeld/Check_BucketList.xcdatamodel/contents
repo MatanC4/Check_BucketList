@@ -1,17 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16E195" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Event" representedClassName="Event" syncable="YES" codeGenerationType="class">
+    <entity name="Check" representedClassName="Check" syncable="YES" codeGenerationType="class">
+        <attribute name="commit" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="commitDate" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="note1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="note2" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="progresStatus" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="thumbnailImage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userRating" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="FBProfile" representedClassName="FBProfile" syncable="YES" codeGenerationType="class">
         <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="user_name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="MyCheck" representedClassName="MyCheck" syncable="YES" codeGenerationType="class">
+        <attribute name="commit" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="commitDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="note1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="note2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="progresStatus" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumbnailImage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userRating" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
     <elements>
+        <element name="MyCheck" positionX="-63" positionY="0" width="128" height="30"/>
         <element name="FBProfile" positionX="-63" positionY="-18" width="128" height="75"/>
-        <element name="Event" positionX="-63" positionY="0" width="128" height="105"/>
+        <element name="Check" positionX="-54" positionY="9" width="128" height="180"/>
     </elements>
 </model>

@@ -18,7 +18,7 @@ class RateScreen: UIViewController {
     //    self.dismiss(animated: true, completion: nil)
 
     //}
-    var event:Event?
+    var event:MyEvent?
     var tempImage: UIImage?
     var eventTempName: String?
     @IBOutlet weak var skipButton: UIButton!
@@ -46,8 +46,11 @@ enum ButtonType: Int { case ang = 0, bor,conf,happ,inlo  }
             event?.userRating = 3
         case .inlo:
             event?.userRating = 4
-
         }
+        event?.progresStatus = "DONE"
+        DBManager.eventsDone?.append(event!)
+        DBManager.deleteFromToDo(event: event!)
+        DBManager.EditExistingEvent(event: event!)
         showAlert()
     }
     

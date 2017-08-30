@@ -5,7 +5,7 @@
 //  Created by Matan on 08/08/2017.
 //  Copyright © 2017 Matan. All rights reserved.
 //
-
+/*
 import UIKit
 
 class MainMenuCell: UICollectionViewCell {
@@ -19,4 +19,4 @@ class MainMenuCell: UICollectionViewCell {
         // Initialization code
     }
 
-}
+}*/

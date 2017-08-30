@@ -12,23 +12,21 @@ import CoreData
 
 
 class ViewController: UIViewController {
-    var userName: String? = ""
-    
     @IBAction func anonymousLoginTapped(_ sender: Any) {
         self.performSegue(withIdentifier: "mainScreenSegue", sender: self)
     }
     @IBOutlet weak var anonymousLoginBtn: UIButton!
-    
+    @IBOutlet weak var fbLoginBtn: UIButton!
     var profilePic: UIImageView? = UIImageView()
     var imageurl: String?
-    
-    @IBOutlet weak var fbLoginBtn: UIButton!
-    
-    
+    var userName: String? = ""
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         shapeButtons()
+        DBManager.deleteAllData()
+        //DBManager.loadData()
         //deleteImage()
     }
 
@@ -107,12 +105,8 @@ func getImage(url: String , profilePicture: UIImageView){
                     }
                 }
             }
-            }.resume()
+        }.resume()
 }
-    
-    
-    
-    
     
     //debug use only
     
@@ -138,77 +132,3 @@ func getImage(url: String , profilePicture: UIImageView){
 
 
 }
-/*
-static func loadData(){
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    let context = appDelegate.persistentContainer.viewContext
-    
-    let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Record")
-    request.returnsObjectsAsFaults = false
-    
-    do {
-        let results = try context.fetch(request)
-        var i = 0
-        if results.count > 0 {
-            for res in results as! [NSManagedObject] {
-                let recordItem = MyRecord()
-                RecordManager.recordList.insert(recordItem, at: i)
-                if let username = res.value(forKey: "username") as? String{
-                    recordItem.playerName = username
-                }
-                if let score = res.value(forKey: "score") as? Int{
-                    recordItem.score = score
-                    
-                }
-                if let long = res.value(forKey: "long") as? Double{
-                    recordItem.long = long
-                    
-                }
-                if let lat = res.value(forKey: "lat") as? Double{
-                    recordItem.lat = lat
-                }
-                i += 1
-                
-            }
-            RecordManager.recordList.sort{
-                $0.score! > $1.score!
-            }
-            RecordManager.recordList = Array(RecordManager.recordList.prefix(RECORD_TABLE_SIZE))
-        }
-        
-    }catch{
-        fatalError("could not load data from core data:  \(error)")
-    }
-    
-}
-
-static func saveData(myRecord: MyRecord){
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    let context = appDelegate.persistentContainer.viewContext
-    
-    let record = NSEntityDescription.insertNewObject(forEntityName: "Record", into: context)
-    record.setValue(myRecord.playerName, forKey: "username")
-    record.setValue(myRecord.score, forKey: "score")
-    record.setValue(myRecord.long, forKey: "long")
-    record.setValue(myRecord.lat, forKey: "lat")
-    
-    do {
-        try context.save()
-        //debug
-        for x in RecordManager.recordList{
-            print(x.playerName!)
-            
-        }
-    }catch{
-        fatalError("failed to save context: \(error)")
-    }
-}
-
-*/
-
-
-
-
-
-
-

@@ -10,26 +10,29 @@ import UIKit
 
 class EventTableViewController: UITableViewController {
     
-    var event: Event?
+    var event: MyEvent?
     var image: UIImage?
     var titleLabel: String?
     var note1Label: String?
     var descLabel: String?
     var tempactionButtonNew: UIButton?
+    var commit:String?
+    var myCell:MyTableViewCell?
     
     @IBOutlet weak var actionButtonNew: UIButton!
     
     @IBOutlet weak var titleView: UIView!
     
     @IBAction func actionButtonTapped(_ sender: Any) {
-        if event?.progresStatus == Status.PENDING{
+        if event?.progresStatus == "PENDING" {
             self.performSegue(withIdentifier: "rateSegue", sender: self)
 
         }
-        if event?.progresStatus == Status.TODO{
+        if event?.progresStatus == "TODO"{
             self.performSegue(withIdentifier: "addEventSegue", sender: "")
 
         }
+       
 
     }
     
@@ -55,7 +58,9 @@ class EventTableViewController: UITableViewController {
         setHeaderView()
         setActionButtonNew()
            }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        decideButton()
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "rateSegue"{
@@ -88,21 +93,30 @@ class EventTableViewController: UITableViewController {
         self.actionButtonNew.layer.cornerRadius = 16.0
         self.actionButtonNew.layer.masksToBounds = true
         
-        event?.progresStatus = "PENDING"
-        let status = event?.progresStatus
-        if status == "TODO" {
-            actionButtonNew.setTitle("Add", for: .normal)
-        }
-            if status == "PENDING" {
-            actionButtonNew?.backgroundColor = UIColor.orange
-                actionButtonNew.setTitle("Mark Done", for: .normal)
-        }
-            if status == "DONE" {
-            actionButtonNew?.backgroundColor = UIColor.darkGray
-            actionButtonNew.setTitle("Done", for: .normal)
-        }
+        //event?.progresStatus = "PENDING"
+        decideButton()
 
     }
+    
+    func decideButton(){
+        let status = self.event?.progresStatus
+        if status == "TODO" {
+            actionButtonNew.setTitle("Add", for: .normal)
+            actionButtonNew.isUserInteractionEnabled = true
+
+        }
+        if status == "PENDING" {
+            actionButtonNew?.backgroundColor = UIColor.orange
+            actionButtonNew.setTitle("Mark Done", for: .normal)
+            actionButtonNew.isUserInteractionEnabled = true
+        }
+        if status == "DONE" {
+            actionButtonNew?.backgroundColor = UIColor.darkGray
+            actionButtonNew.setTitle("Done", for: .normal)
+            actionButtonNew.isUserInteractionEnabled = false
+        }
+    }
+    
     
     func setHeaderView(){
         navigationItem.title = "Details"
@@ -115,7 +129,6 @@ class EventTableViewController: UITableViewController {
         tableView.contentInset = UIEdgeInsets(top:tabelHeaderViewHeight, left: 0, bottom: 0, right: 0)
         tableView.contentOffset = CGPoint(x: 0, y:
          -tabelHeaderViewHeight + 64)
-        
         
         
         self.titleView.layer.cornerRadius = 8.0
@@ -144,13 +157,7 @@ class EventTableViewController: UITableViewController {
         headerMasklayer?.path = path.cgPath
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return 1
     }
     
@@ -159,12 +166,15 @@ class EventTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DetailsTableViewCell", for: indexPath) as! DetailsTableViewCell
         cell.titleLabel.text = titleLabel
         cell.descLabel.text = descLabel
+        if event?.commit == ""{
+            cell.commitment.text = ""
+        }else{
+            let tempCommit = event?.commit
+            cell.commitment.text = "Commitment: \(String(describing: tempCommit)))"
+        }
         cell.backgroundColor = UIColor.darkGray
             return cell
-
-}
-    
-    
+    }
 }
 
 extension EventTableViewController{

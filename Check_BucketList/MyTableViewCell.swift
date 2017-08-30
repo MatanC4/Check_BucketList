@@ -29,10 +29,9 @@ class MyTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
     
-    func setUpImage(event:Event){
+    func setUpImage(event:MyEvent){
         if event.thumbnailImage != nil {
             let thumbnailImage = event.thumbnailImage
             if let url = URL(string: thumbnailImage!)
@@ -61,7 +60,7 @@ class MyTableViewCell: UITableViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        cellImage.image = #imageLiteral(resourceName: "menu_movies")
+        cellImage.image = #imageLiteral(resourceName: "picture")
     }
     
 }

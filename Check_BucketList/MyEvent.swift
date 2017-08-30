@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Event: NSObject {
+class MyEvent: NSObject {
     
     var thumbnailImage: String?
     var title: String?
@@ -17,7 +17,7 @@ class Event: NSObject {
     var progresStatus: String = "TODO"
     var note1: String?
     var note2: String?
-    var userRating: Int?
+    var userRating: Float?
     var commit: String?
     var commitDate: String?
     

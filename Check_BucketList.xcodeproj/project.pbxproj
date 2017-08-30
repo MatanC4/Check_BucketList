@@ -14,7 +14,7 @@
 		4563B05B1F3A1070006C5243 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4563B0591F3A1070006C5243 /* MyTableViewCell.swift */; };
 		4563B05C1F3A1070006C5243 /* MyTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4563B05A1F3A1070006C5243 /* MyTableView.xib */; };
 		4563B05E1F3A1CDA006C5243 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4563B05D1F3A1CDA006C5243 /* APIManager.swift */; };
-		4563B0601F3A1D18006C5243 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4563B05F1F3A1D18006C5243 /* Event.swift */; };
+		4563B0601F3A1D18006C5243 /* MyEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4563B05F1F3A1D18006C5243 /* MyEvent.swift */; };
 		4563B0641F3BB347006C5243 /* APIDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4563B0631F3BB347006C5243 /* APIDetails.swift */; };
 		4563B06A1F3DBD7E006C5243 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4563B0691F3DBD7E006C5243 /* MoviesViewController.swift */; };
 		4563F6961F51DF31008111CA /* RateScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4563F6951F51DF31008111CA /* RateScreen.swift */; };
@@ -23,8 +23,6 @@
 		4575DE3E1F3F2B8400A47026 /* DetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4575DE3D1F3F2B8400A47026 /* DetailsTableViewCell.swift */; };
 		4575DE411F3F2D3E00A47026 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4575DE401F3F2D3E00A47026 /* EventTableViewController.swift */; };
 		45A219C61F44EDB900652B3D /* MyChecks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A219C51F44EDB900652B3D /* MyChecks.swift */; };
-		45A219CB1F4701BA00652B3D /* MoviesToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A219CA1F4701BA00652B3D /* MoviesToDo.swift */; };
-		45A219CD1F4705E600652B3D /* TvToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A219CC1F4705E600652B3D /* TvToDo.swift */; };
 		45C4EB3F1F3DF4C40019D729 /* ExploreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C4EB3E1F3DF4C40019D729 /* ExploreVC.swift */; };
 		45C6EF281F523330009D2B9E /* AddEventScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C6EF271F523330009D2B9E /* AddEventScreen.swift */; };
 		45C6EF2A1F5467F5009D2B9E /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C6EF291F5467F5009D2B9E /* DBManager.swift */; };
@@ -71,7 +69,7 @@
 		4563B0591F3A1070006C5243 /* MyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 		4563B05A1F3A1070006C5243 /* MyTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyTableView.xib; sourceTree = "<group>"; };
 		4563B05D1F3A1CDA006C5243 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
-		4563B05F1F3A1D18006C5243 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		4563B05F1F3A1D18006C5243 /* MyEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyEvent.swift; sourceTree = "<group>"; };
 		4563B0631F3BB347006C5243 /* APIDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIDetails.swift; sourceTree = "<group>"; };
 		4563B0691F3DBD7E006C5243 /* MoviesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
 		4563F6951F51DF31008111CA /* RateScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RateScreen.swift; sourceTree = "<group>"; };
@@ -80,8 +78,6 @@
 		4575DE3D1F3F2B8400A47026 /* DetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsTableViewCell.swift; sourceTree = "<group>"; };
 		4575DE401F3F2D3E00A47026 /* EventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewController.swift; sourceTree = "<group>"; };
 		45A219C51F44EDB900652B3D /* MyChecks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyChecks.swift; sourceTree = "<group>"; };
-		45A219CA1F4701BA00652B3D /* MoviesToDo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesToDo.swift; sourceTree = "<group>"; };
-		45A219CC1F4705E600652B3D /* TvToDo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TvToDo.swift; sourceTree = "<group>"; };
 		45C4EB3E1F3DF4C40019D729 /* ExploreVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreVC.swift; sourceTree = "<group>"; };
 		45C6EF271F523330009D2B9E /* AddEventScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEventScreen.swift; sourceTree = "<group>"; };
 		45C6EF291F5467F5009D2B9E /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
@@ -168,13 +164,41 @@
 			name = Cat_ViewControllers;
 			sourceTree = "<group>";
 		};
-		45A219C71F46FE3D00652B3D /* MoviesSegment */ = {
+		45C6EF311F572FBA009D2B9E /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
-				45A219CA1F4701BA00652B3D /* MoviesToDo.swift */,
-				45A219CC1F4705E600652B3D /* TvToDo.swift */,
+				45A219C51F44EDB900652B3D /* MyChecks.swift */,
+				45C4EB3E1F3DF4C40019D729 /* ExploreVC.swift */,
 			);
-			name = MoviesSegment;
+			name = Tabs;
+			sourceTree = "<group>";
+		};
+		45C6EF321F572FDB009D2B9E /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				45F89E2A1F51DBDB009F370B /* Status.swift */,
+				4563B05F1F3A1D18006C5243 /* MyEvent.swift */,
+				4563B0551F3A055B006C5243 /* MainMenuCell.swift */,
+				4563B0591F3A1070006C5243 /* MyTableViewCell.swift */,
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
+		45C6EF331F57300E009D2B9E /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				45C6EF291F5467F5009D2B9E /* DBManager.swift */,
+			);
+			name = DB;
+			sourceTree = "<group>";
+		};
+		45C6EF341F57303D009D2B9E /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				45C6EF271F523330009D2B9E /* AddEventScreen.swift */,
+				4563F6951F51DF31008111CA /* RateScreen.swift */,
+			);
+			name = Screens;
 			sourceTree = "<group>";
 		};
 		45DA3E631F36160F00E35B65 = {
@@ -202,7 +226,6 @@
 		45DA3E6E1F36160F00E35B65 /* Check_BucketList */ = {
 			isa = PBXGroup;
 			children = (
-				4563B05F1F3A1D18006C5243 /* Event.swift */,
 				45DA3E6F1F36160F00E35B65 /* AppDelegate.swift */,
 				45DA3E711F36160F00E35B65 /* ViewController.swift */,
 				45DA3E731F36160F00E35B65 /* Main.storyboard */,
@@ -210,20 +233,15 @@
 				45DA3E7B1F36161000E35B65 /* LaunchScreen.storyboard */,
 				45DA3E7E1F36161000E35B65 /* Info.plist */,
 				45DA3E761F36160F00E35B65 /* Check_BucketList.xcdatamodeld */,
-				4563B0551F3A055B006C5243 /* MainMenuCell.swift */,
 				4563B0561F3A055B006C5243 /* MainMenuCell.xib */,
-				4563B0591F3A1070006C5243 /* MyTableViewCell.swift */,
 				4563B05A1F3A1070006C5243 /* MyTableView.xib */,
-				45C4EB3E1F3DF4C40019D729 /* ExploreVC.swift */,
-				45A219C51F44EDB900652B3D /* MyChecks.swift */,
-				45A219C71F46FE3D00652B3D /* MoviesSegment */,
+				45C6EF321F572FDB009D2B9E /* Entities */,
+				45C6EF311F572FBA009D2B9E /* Tabs */,
 				4563B0501F3A03C4006C5243 /* APIs */,
 				45A219C41F44DD9E00652B3D /* Cat_ViewControllers */,
 				4575DE3F1F3F2CF200A47026 /* Event_Details */,
-				45F89E2A1F51DBDB009F370B /* Status.swift */,
-				4563F6951F51DF31008111CA /* RateScreen.swift */,
-				45C6EF271F523330009D2B9E /* AddEventScreen.swift */,
-				45C6EF291F5467F5009D2B9E /* DBManager.swift */,
+				45C6EF331F57300E009D2B9E /* DB */,
+				45C6EF341F57303D009D2B9E /* Screens */,
 			);
 			path = Check_BucketList;
 			sourceTree = "<group>";
@@ -557,7 +575,7 @@
 				45C4EB3F1F3DF4C40019D729 /* ExploreVC.swift in Sources */,
 				4575DE411F3F2D3E00A47026 /* EventTableViewController.swift in Sources */,
 				45A219C61F44EDB900652B3D /* MyChecks.swift in Sources */,
-				4563B0601F3A1D18006C5243 /* Event.swift in Sources */,
+				4563B0601F3A1D18006C5243 /* MyEvent.swift in Sources */,
 				45C6EF281F523330009D2B9E /* AddEventScreen.swift in Sources */,
 				45DA3E721F36160F00E35B65 /* ViewController.swift in Sources */,
 				45DA3E781F36160F00E35B65 /* Check_BucketList.xcdatamodeld in Sources */,
@@ -574,8 +592,6 @@
 				45F89E2B1F51DBDB009F370B /* Status.swift in Sources */,
 				45C6EF2A1F5467F5009D2B9E /* DBManager.swift in Sources */,
 				4575DE381F3E36C200A47026 /* TVSeriesViewController.swift in Sources */,
-				45A219CB1F4701BA00652B3D /* MoviesToDo.swift in Sources */,
-				45A219CD1F4705E600652B3D /* TvToDo.swift in Sources */,
 				4563B0571F3A055B006C5243 /* MainMenuCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -15,9 +15,9 @@ class MoviesViewController: UIViewController ,UITableViewDelegate , UITableViewD
     //@IBOutlet weak var mySearchBar: UISearchBar!
     
     @IBOutlet weak var moviesTableView: UITableView!
-    var apiManager = APIManager()
-    var moviesArrTrending: [Event]?
-    var moviesArrSearch : [Event]?
+    //var apiManager = APIManager()
+    var moviesArrTrending: [MyEvent]?
+    var moviesArrSearch : [MyEvent]?
     var moviesApi = MoviesAPI()
     var selectedIndexPath: IndexPath!
     let trendingUrl: String = "https://api.themoviedb.org/3/movie/popular?api_key=8a5c1fef1a13c3293e4c069fde43be81&language=en-US&page=1"
@@ -70,6 +70,7 @@ class MoviesViewController: UIViewController ,UITableViewDelegate , UITableViewD
             detailTVC.descLabel = event.desc
         }
         self.navigationController?.pushViewController(detailTVC, animated: true)*/
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -83,23 +84,23 @@ class MoviesViewController: UIViewController ,UITableViewDelegate , UITableViewD
                 cell.setUpImage(event: event)
                 cell.note1.text = event.note1
                 cell.note2.text = "Rate: \(event.note2!)"
-                cell.backgroundColor = UIColor.lightGray
+                //cell.backgroundColor = UIColor.lightGray
                 cell.cellImage.image =   placeStatusImage(cell: cell, event: event)
             }
         }
         return cell
     }
     
-    func placeStatusImage(cell:MyTableViewCell, event:Event) -> UIImage{
-        if event.progresStatus == Status.TODO{
+    func placeStatusImage(cell:MyTableViewCell, event:MyEvent) -> UIImage{
+        if event.progresStatus == "TODO"{
             return #imageLiteral(resourceName: "plus")
             
         }
-        if event.progresStatus == Status.PENDING{
+        if event.progresStatus == "PENDING"{
             return  #imageLiteral(resourceName: "loading")
             
         }
-        if event.progresStatus == Status.DONE{
+        if event.progresStatus == "DONE"{
             return #imageLiteral(resourceName: "checked")
         }
         return #imageLiteral(resourceName: "plus")
@@ -164,9 +165,9 @@ class MoviesViewController: UIViewController ,UITableViewDelegate , UITableViewD
             print("Parsing JSON dictionary:\n\(responseDictionary)")
             print("########################################")
             if let results = responseDictionary["results"] as? [AnyObject]{
-                self.moviesArrTrending = [Event]()
+                self.moviesArrTrending = [MyEvent]()
                 for movie in results{
-                    let event = Event()
+                    let event = MyEvent()
                     if let title = movie["original_title"] as? String {
                     event.title = title
                     }else{

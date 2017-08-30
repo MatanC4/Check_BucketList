@@ -6,12 +6,12 @@
 //  Copyright © 2017 Matan. All rights reserved.
 //
 
-import Foundation
+/*import Foundation
 
 class APIManager {
     //var moviesAPI: Movies?
     var json = [[String:AnyObject]]()
-    var moviesArr = [Event]()
+    var moviesArr = [MyEvent]()
     init() {
         
     }
@@ -62,9 +62,9 @@ class APIManager {
             print("Parsing JSON dictionary:\n\(responseDictionary)")
             print("########################################")
             if let results = responseDictionary["results"] as? [AnyObject]{
-                //self.moviesArr = [Event]()
+                //self.moviesArr = [MyEvent]()
                 for movie in results{
-                    let event = Event()
+                    let event = MyEvent()
                     event.title = movie["original_title"] as? String
                     event.desc = movie["overview"] as? String
                     event.thumbnailImage = movie["poster_path"] as? String
@@ -74,3 +74,4 @@ class APIManager {
         }
     }
 }
+*/

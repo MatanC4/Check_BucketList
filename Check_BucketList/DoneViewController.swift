@@ -14,8 +14,8 @@ class DoneViewController: UIViewController ,UITableViewDelegate , UITableViewDat
     @IBOutlet weak var tableView: UITableView!
  
     
-    var apiManager = APIManager()
-    var moviesArrTrending: [Event]?
+    //var apiManager = APIManager()
+    //var moviesArrTrending: [MyEvent]?
     var moviesApi = MoviesAPI()
     var selectedIndexPath: IndexPath!
     
@@ -31,13 +31,13 @@ class DoneViewController: UIViewController ,UITableViewDelegate , UITableViewDat
         
     }
     
-    /*override func viewDidAppear(_ animated: Bool) {
+     override func viewDidAppear(_ animated: Bool) {
      tableView.reloadData()
-     }*/
+     }
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        if let count = moviesArrTrending?.count {
+        if let count = DBManager.eventsDone?.count {
             return count
         }
         return 1
@@ -50,36 +50,38 @@ class DoneViewController: UIViewController ,UITableViewDelegate , UITableViewDat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndexPath = indexPath
         self.performSegue(withIdentifier: "ShowDetailsSegue", sender: "")
+        tableView.deselectRow(at: indexPath, animated: true)
+
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath) as! MyTableViewCell
         // Configure the cell...
-        if moviesArrTrending != nil {
-            if let event = moviesArrTrending?[indexPath.section]{
+        if DBManager.eventsDone != nil {
+            if let event = DBManager.eventsDone?[indexPath.section]{
                 cell.title.text = event.title
                 cell.desc.text = event.desc
                 cell.setUpImage(event: event)
                 cell.note1.text = event.note1
                 cell.note2.text = "Rate: \(event.note2!)"
-                cell.backgroundColor = UIColor.lightGray
+                //cell.backgroundColor = UIColor.lightGray
                 cell.cellImage.image =   placeStatusImage(cell: cell, event: event)
             }
         }
         return cell
     }
     
-    func placeStatusImage(cell:MyTableViewCell, event:Event) -> UIImage{
-        if event.progresStatus == Status.TODO{
+    func placeStatusImage(cell:MyTableViewCell,event:MyEvent) -> UIImage{
+        if event.progresStatus == "TODO"{
             return #imageLiteral(resourceName: "plus")
             
         }
-        if event.progresStatus == Status.PENDING{
+        if event.progresStatus == "PENDING"{
             return  #imageLiteral(resourceName: "loading")
             
         }
-        if event.progresStatus == Status.DONE{
+        if event.progresStatus == "DONE"{
             return #imageLiteral(resourceName: "checked")
         }
         return #imageLiteral(resourceName: "plus")
@@ -95,7 +97,7 @@ class DoneViewController: UIViewController ,UITableViewDelegate , UITableViewDat
             let cell  = tableView.cellForRow(at: selectedIndexPath ) as! MyTableViewCell
             detailTVC.image = cell.cellImage.image
             
-            if let event = moviesArrTrending?[selectedIndexPath.section]{
+            if let event = DBManager.eventsDone?[selectedIndexPath.section]{
                 detailTVC.event = event
                 detailTVC.titleLabel = event.title
                 detailTVC.descLabel = event.desc

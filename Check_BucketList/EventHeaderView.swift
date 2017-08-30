@@ -15,13 +15,13 @@ class EventHeaderView: UIView{
     @IBOutlet weak var titleView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     
-    weak var event : Event?
+    weak var event:MyEvent?
     
     init()
     {
         super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0 ))
     }
-    convenience init (withEvent event: Event)
+    convenience init (withEvent event: MyEvent)
     {
         self.init()
         setActionButtonNew()
@@ -41,20 +41,19 @@ class EventHeaderView: UIView{
         }
     }
     func setActionButtonNew(){
-        
         self.actionButtonNew.layer.cornerRadius = 16.0
         self.actionButtonNew.layer.masksToBounds = true
         
-        event?.progresStatus = Status.TODO
+        event?.progresStatus = "TODO"
         let status = event?.progresStatus
-        if status == Status.TODO {
+        if status == "TODO" {
             actionButtonNew.setTitle("Add", for: .normal)
         }
-        if status == Status.PENDING {
+        if status == "PENDING" {
             actionButtonNew?.backgroundColor = UIColor.orange
             actionButtonNew.setTitle("Mark Done", for: .normal)
         }
-        if status == Status.DONE {
+        if status == "DONE" {
             actionButtonNew?.backgroundColor = UIColor.darkGray
             actionButtonNew.setTitle("Done", for: .normal)
         }
