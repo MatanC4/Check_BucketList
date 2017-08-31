@@ -164,7 +164,7 @@ class EventTableViewController: UITableViewController {
             cell.commitment.text = ""
         }else{
             let tempCommit = event?.commit
-            cell.commitment.text = "Commitment: \(String(describing: tempCommit)))"
+            cell.commitment.text = "Commitment: \(tempCommit ?? "")"
         }
         //cell.backgroundColor = UIColor.darkGray
             return cell

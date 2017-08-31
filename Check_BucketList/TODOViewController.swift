@@ -25,9 +25,9 @@ class TODOViewController: UIViewController ,UITableViewDelegate , UITableViewDat
         
     }
     
-    /*override func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
      tableView.reloadData()
-     }*/
+     }
     
     
     func numberOfSections(in tableView: UITableView) -> Int {

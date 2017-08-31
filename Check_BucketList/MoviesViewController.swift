@@ -21,6 +21,7 @@ class MoviesViewController: UIViewController ,UITableViewDelegate , UITableViewD
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.extendedLayoutIncludesOpaqueBars = !(self.navigationController?.navigationBar.isTranslucent)!
         self.moviesTableView.delegate = self
         self.moviesTableView.dataSource = self
         fetchFromApi(url: trendingUrl)
@@ -114,14 +115,18 @@ class MoviesViewController: UIViewController ,UITableViewDelegate , UITableViewD
             fetchFromApi(url: trendingUrl)
         }else{
             let keywords = searchTerm
-            let finalKeywords = keywords.replacingOccurrences(of: "", with: "+")
+            let trimmedkeywords = keywords.trimmingCharacters(in: .whitespacesAndNewlines)
+            print("$$$$$$$$$$$$$  *\(trimmedkeywords)*")
+            let finalKeywords = trimmedkeywords.replacingOccurrences(of: " ", with: "+")
+            print("$$$$$$$$$$$$$  *\(finalKeywords)*")
             let tempSearchUrl = searchUrl+finalKeywords
+            print("$$$$$$$$$$$$$  *\(tempSearchUrl)*")
             fetchFromApi(url: tempSearchUrl)
         }
     }
     func fetchFromApi(url:String){
         let poplularMoviesUrl = URL(string: url)
-        let task = URLSession.shared.dataTask(with: poplularMoviesUrl!) { (data, response, error) in
+          let task = URLSession.shared.dataTask(with: poplularMoviesUrl!) { (data, response, error) in
             if error != nil{
                 print(error!)
             }
@@ -139,8 +144,7 @@ class MoviesViewController: UIViewController ,UITableViewDelegate , UITableViewD
                 }
             }
         }
-        task.resume()
-    }
+        task.resume()    }
     
     func parseResponse(_ responseObject: Any) {
         if let responseDictionary = responseObject as? [String:AnyObject]{

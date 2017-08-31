@@ -60,7 +60,7 @@ class MyTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        cellImage.image = #imageLiteral(resourceName: "picture")
+        cellImage.image = nil
     }
     
 }

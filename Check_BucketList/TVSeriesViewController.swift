@@ -18,9 +18,13 @@ class TVSeriesViewController: UIViewController ,UITableViewDelegate , UITableVie
     let trendingUrl: String = "https://api.themoviedb.org/3/tv/popular?api_key=8a5c1fef1a13c3293e4c069fde43be81&language=en-US&page=1"
     let searchUrl: String = "https://api.themoviedb.org/3/search/movie?api_key=8a5c1fef1a13c3293e4c069fde43be81&query="
     let searchController = UISearchController(searchResultsController: nil)
-
+    
+    var searchControllerWasActive = false;
+    var searchControllerSearchFieldWasFirstResponder = false;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+         self.extendedLayoutIncludesOpaqueBars = !(self.navigationController?.navigationBar.isTranslucent)!
         self.tvSeriesTableView.delegate = self
         self.tvSeriesTableView.dataSource = self
         fetchFromApi(url: trendingUrl)
@@ -29,14 +33,29 @@ class TVSeriesViewController: UIViewController ,UITableViewDelegate , UITableVie
         //navigationController?.navigationBar.backgroundColor = UIColor.white
         fetchFromApi(url: trendingUrl)
         searchController.searchBar.delegate = self
-        searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
+        
+        self.searchController.searchBar.sizeToFit()
+        self.tvSeriesTableView.tableHeaderView = self.searchController.searchBar
+        
         definesPresentationContext = true
-        tvSeriesTableView.tableHeaderView = searchController.searchBar
         searchController.searchBar.placeholder = "Search for TV Series"
         self.tvSeriesTableView.reloadData()
     }
-
+    
+    
+    /*override func viewDidAppear(_ animated: Bool) {
+        if (self.searchControllerWasActive) {
+            
+            self.searchController.active = self.searchControllerWasActive;
+            self.searchControllerWasActive = NO;
+            
+            if (self.searchControllerSearchFieldWasFirstResponder) {
+                [self.searchController.searchBar becomeFirstResponder];
+                _searchControllerSearchFieldWasFirstResponder = NO;
+            }
+        }
+    }*/
+    
     /*override func viewDidAppear(_ animated: Bool) {
         tvSeriesTableView.reloadData()
     }*/

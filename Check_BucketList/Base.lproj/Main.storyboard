@@ -394,7 +394,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="129" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x3A-LX-7Uy">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.092758398889999996" green="0.3531779733" blue="0.48431998240000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableViewCell" rowHeight="129" id="rie-ny-I5z" customClass="MyTableViewCell" customModule="Check_BucketList" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="129"/>
@@ -493,7 +493,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="134" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xUM-ge-Me7">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableViewCell" rowHeight="129" id="hep-M7-Bor" customClass="MyTableViewCell" customModule="Check_BucketList" customModuleProvider="target">
@@ -551,10 +551,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="1VI-1z-9Tc" firstAttribute="top" secondItem="xUM-ge-Me7" secondAttribute="bottom" id="9Ye-18-dne"/>
-                            <constraint firstAttribute="trailing" secondItem="xUM-ge-Me7" secondAttribute="trailing" id="Fdf-oF-tzh"/>
-                            <constraint firstItem="xUM-ge-Me7" firstAttribute="leading" secondItem="uC6-6i-t4u" secondAttribute="leading" id="HHT-Zv-t1Y"/>
-                            <constraint firstItem="xUM-ge-Me7" firstAttribute="top" secondItem="uC6-6i-t4u" secondAttribute="top" id="klI-if-Zgw"/>
+                            <constraint firstItem="1VI-1z-9Tc" firstAttribute="top" secondItem="xUM-ge-Me7" secondAttribute="bottom" id="7pY-dM-V56"/>
+                            <constraint firstItem="xUM-ge-Me7" firstAttribute="top" secondItem="08L-Gu-Cne" secondAttribute="bottom" id="bbv-fo-L8D"/>
+                            <constraint firstAttribute="trailing" secondItem="xUM-ge-Me7" secondAttribute="trailing" id="dof-IT-ywe"/>
+                            <constraint firstItem="xUM-ge-Me7" firstAttribute="leading" secondItem="uC6-6i-t4u" secondAttribute="leading" id="eiO-zr-JDo"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -18759,7 +18759,7 @@ AAAAAAAQDwA
         <image name="welcome" width="323" height="500"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="56x-yk-ywI"/>
+        <segue reference="1ba-1Q-2e4"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.21708779919999999" green="0.41325545699999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
