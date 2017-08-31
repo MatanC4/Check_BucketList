@@ -44,7 +44,7 @@ class RateScreen: UIViewController {
         event?.progresStatus = "DONE"
         DBManager.eventsDone?.append(event!)
         DBManager.deleteFromToDo(event: event!)
-        DBManager.EditExistingEvent(event: event!)
+        DBManager.editExistingEvent(event: event!)
         showAlert()
     }
     

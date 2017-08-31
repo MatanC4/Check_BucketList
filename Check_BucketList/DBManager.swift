@@ -148,7 +148,7 @@ class DBManager  {
         }
     }
 
-    static func EditExistingEvent(event:MyEvent){
+    static func editExistingEvent(event:MyEvent){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
